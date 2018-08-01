@@ -9,3 +9,4 @@ Exploring the React World: Take 1
 - Setting up event handlers
 - Working with dynamic lists
 - Setting styles, dynamically
+- Adding and using radium
