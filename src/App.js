@@ -4,16 +4,32 @@ import Person from "./Person/Person";
 
 class App extends Component {
   state = {
-    persons: [{ id: "ajk2", name: "Evans", age: 28 }, { id: "9lkd", name: "Musomi", age: 26 }],
+    persons: [
+      { id: "ajk2", name: "Evans", age: 28 },
+      { id: "9lkd", name: "Musomi", age: 26 }
+    ],
     showPersons: false
   };
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({ showPersons: !doesShow })
-  }
-  
-  deletePersonHandler = (personIndex) => {
+    this.setState({ showPersons: !doesShow });
+  };
+
+  nameChangedHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex(p => {
+      return p.id === id;
+    });
+    const person = {
+      ...this.state.persons[personIndex]
+    };
+    person.name = event.target.value;
+    const persons = [...this.state.persons];
+    persons[personIndex] = person;
+    this.setState({ persons: persons });
+  };
+
+  deletePersonHandler = personIndex => {
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({ persons: persons });
@@ -27,27 +43,33 @@ class App extends Component {
       padding: "8px",
       cursor: "pointer"
     };
-    
+
     let persons = null;
-    if(this.state.showPersons){
+    if (this.state.showPersons) {
       persons = (
         <div>
           {this.state.persons.map((person, index) => {
-            return <Person 
-              key={person.id}
-              name={person.name} 
-              age={person.age} 
-              click={() => this.deletePersonHandler(index)} />
+            return (
+              <Person
+                key={person.id}
+                name={person.name}
+                age={person.age}
+                click={() => this.deletePersonHandler(index)}
+                changed={event => this.nameChangedHandler(event, person.id)}
+              />
+            );
           })}
         </div>
-      )
+      );
     }
-    
+
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-        { persons }
+        <button style={style} onClick={this.togglePersonsHandler}>
+          Toggle Persons
+        </button>
+        {persons}
       </div>
     );
   }
