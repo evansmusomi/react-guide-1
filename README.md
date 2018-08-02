@@ -10,3 +10,5 @@ Exploring the React World: Take 1
 - Working with dynamic lists
 - Setting styles, dynamically
 - Adding and using radium
+- Setting up and using css modules
+- Using error boundary to catch component errors
