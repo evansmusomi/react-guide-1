@@ -14,3 +14,4 @@ Exploring the React World: Take 1
 - Using error boundary to catch component errors
 - Creating a decent file structure
 - Splitting a component into multiple ones
+- Converting stateless components into stateful ones
