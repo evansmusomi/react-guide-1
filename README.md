@@ -16,3 +16,4 @@ Exploring the React World: Take 1
 - Splitting a component into multiple ones
 - Converting stateless components into stateful ones
 - Logging the component create lifecycle
+- Logging the component update lifecycle
