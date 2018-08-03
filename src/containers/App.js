@@ -1,17 +1,28 @@
 import React, { Component } from "react";
 import classes from "./App.css";
-import ErrorBoundary from "../containers/ErrorBoundary/ErrorBoundary";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "ajk2", name: "Evans", age: 28 },
-      { id: "9lkd", name: "Musomi", age: 26 }
-    ],
-    showPersons: false
-  };
+  constructor(props) {
+    super(props);
+    console.log("[App.js] Constructor");
+    this.state = {
+      persons: [
+        { id: "ajk2", name: "Evans", age: 28 },
+        { id: "9lkd", name: "Musomi", age: 26 }
+      ],
+      showPersons: false
+    };
+  }
+
+  componentWillMount() {
+    console.log("[App.js] Will Mount");
+  }
+
+  componentDidMount() {
+    console.log("[App.js] Did Mount");
+  }
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
@@ -38,6 +49,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("[App.js] Render");
     let persons = null;
 
     if (this.state.showPersons) {
