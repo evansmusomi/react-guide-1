@@ -17,3 +17,4 @@ Exploring the React World: Take 1
 - Converting stateless components into stateful ones
 - Logging the component create lifecycle
 - Logging the component update lifecycle
+- Using pure components
