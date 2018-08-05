@@ -18,3 +18,4 @@ Exploring the React World: Take 1
 - Logging the component create lifecycle
 - Logging the component update lifecycle
 - Using pure components
+- Using fragments and higher order components
